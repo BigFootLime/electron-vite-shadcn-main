@@ -56,10 +56,10 @@
 
 @layer base {
     :root {
-        background-image: url("../src/assets/wavy-lines.svg"),
+        /* background-image: url("../src/assets/wavy-lines.svg"),
             linear-gradient(to bottom right, #250c5f 20%, #18181b 80%);
         background-size: cover;
-        user-select: none;
+        user-select: none; */
         --background: 0 0% 100%;
         --foreground: 222.2 84% 4.9%;
 
