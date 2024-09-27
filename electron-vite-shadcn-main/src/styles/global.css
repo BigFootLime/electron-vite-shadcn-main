@@ -1,0 +1,224 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: "Geist";
+        font-weight: 100;
+
+        src: url("../assets/fonts/geist/Geist-Thin.woff2") format("woff2");
+    }
+    @font-face {
+        font-family: "Geist";
+        font-weight: 200;
+
+        src: url("../assets/fonts/geist/Geist-UltraLight.woff2") format("woff2");
+    }
+    @font-face {
+        font-family: "Geist";
+        font-weight: 300;
+
+        src: url("../assets/fonts/geist/Geist-Light.woff2") format("woff2");
+    }
+    @font-face {
+        font-family: "Geist";
+        font-weight: 400;
+        font-style: normal;
+
+        src: url("../assets/fonts/geist/Geist-Regular.woff2") format("woff2");
+    }
+    @font-face {
+        font-family: "Geist";
+        font-weight: 600;
+
+        src: url("../assets/fonts/geist/Geist-SemiBold.woff2") format("woff2");
+    }
+    @font-face {
+        font-family: "Geist";
+        font-weight: 700;
+
+        src: url("../assets/fonts/geist/Geist-Bold.woff2") format("woff2");
+    }
+    @font-face {
+        font-family: "Geist";
+        font-weight: 800;
+
+        src: url("../assets/fonts/geist/Geist-Black.woff2") format("woff2");
+    }
+    @font-face {
+        font-family: "Geist";
+        font-weight: 900;
+
+        src: url("../assets/fonts/geist/Geist-UltraBlack.woff2") format("woff2");
+    }
+}
+
+@layer base {
+    :root {
+        background-image: url("../src/assets/wavy-lines.svg"),
+            linear-gradient(to bottom right, #250c5f 20%, #18181b 80%);
+        background-size: cover;
+        user-select: none;
+        --background: 0 0% 100%;
+        --foreground: 222.2 84% 4.9%;
+
+        --card: 0 0% 100%;
+        --card-foreground: 222.2 84% 4.9%;
+
+        --popover: 0 0% 100%;
+        --popover-foreground: 222.2 84% 4.9%;
+
+        --primary: 222.2 47.4% 11.2%;
+        --primary-foreground: 210 40% 98%;
+
+        --secondary: 210 40% 96.1%;
+        --secondary-foreground: 222.2 47.4% 11.2%;
+
+        --muted: 210 40% 96.1%;
+        --muted-foreground: 215.4 16.3% 46.9%;
+
+        --accent: 210 40% 96.1%;
+        --accent-foreground: 222.2 47.4% 11.2%;
+
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 210 40% 98%;
+
+        --border: 214.3 31.8% 91.4%;
+        --input: 214.3 31.8% 91.4%;
+        --ring: 222.2 84% 4.9%;
+
+        --radius: 0.5rem;
+    }
+
+    .dark {
+        --background: 222.2 84% 4.9%;
+        --foreground: 210 40% 98%;
+
+        --card: 222.2 84% 4.9%;
+        --card-foreground: 210 40% 98%;
+
+        --popover: 222.2 84% 4.9%;
+        --popover-foreground: 210 40% 98%;
+
+        --primary: 210 40% 98%;
+        --primary-foreground: 222.2 47.4% 11.2%;
+
+        --secondary: 217.2 32.6% 17.5%;
+        --secondary-foreground: 210 40% 98%;
+
+        --muted: 217.2 32.6% 17.5%;
+        --muted-foreground: 215 20.2% 65.1%;
+
+        --accent: 217.2 32.6% 17.5%;
+        --accent-foreground: 210 40% 98%;
+
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 210 40% 98%;
+
+        --border: 217.2 32.6% 17.5%;
+        --input: 217.2 32.6% 17.5%;
+        --ring: 212.7 26.8% 83.9%;
+    }
+}
+
+@layer base {
+    * {
+        @apply m-0 border-border p-0 font-sans;
+    }
+    body {
+        @apply overflow-hidden bg-background text-foreground;
+    }
+    .draglayer {
+        @apply bg-background;
+        -webkit-app-region: drag;
+    }
+}
+.loader {
+    border: 8px solid rgba(255, 255, 255, 0.3);
+    border-top: 8px solid #6b46c1; /* Purple color */
+    border-radius: 50%;
+    width: 96px;
+    height: 96px;
+    animation:
+        spin 4s linear infinite,
+        transformShape 4s linear infinite;
+}
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(90deg);
+        animation-timing-function: ease-out; /* Slow down */
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    75% {
+        transform: rotate(270deg);
+        animation-timing-function: ease-in; /* Speed up */
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@keyframes transformShape {
+    0%,
+    50%,
+    100% {
+        border-radius: 50%;
+    }
+    20%,
+    30% {
+        border-radius: 20%; /* Transform to a different shape at the top */
+    }
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.animate-gradient {
+    background: linear-gradient(90deg, #6b46c1, #ffffff);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation:
+        gradient 3s ease infinite,
+        pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 12px; /* Width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background-color: #131826;
+    /* Color of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #6b46c1;
+    border-radius: 6px;
+    border: 3px solid #131826;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
